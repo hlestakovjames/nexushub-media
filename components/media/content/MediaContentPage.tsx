@@ -17,6 +17,8 @@ type MediaContentPageProps = {
   slug: string;
 };
 
+const SITE_URL = 'https://nexushub-media.vercel.app';
+
 export default function MediaContentPage({
   property,
   slug,
@@ -26,6 +28,8 @@ export default function MediaContentPage({
   if (!content) {
     notFound();
   }
+
+  const canonicalUrl = `${SITE_URL}/${property}/${content.slug}`;
 
   return (
     <>
@@ -46,6 +50,7 @@ export default function MediaContentPage({
 
                 <ShareContent
                   title={content.title}
+                  url={canonicalUrl}
                   className="mt-4"
                 />
 
